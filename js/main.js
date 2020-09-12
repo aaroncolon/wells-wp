@@ -53,7 +53,7 @@ const wells = (function() {
   function _handleWindowResize(e) {
     setWindowDimensions();
 
-    if (windowWidth > BREAKPOINT_MD && ! $royalSlider) {
+    if (windowWidth > BREAKPOINT_MD && ! $royalSlider.length) {
       initRoyalSlider();
       showRoyalSlider();
     } else if (windowWidth > BREAKPOINT_MD) {
@@ -73,6 +73,8 @@ const wells = (function() {
   }
 
   function initRoyalSlider() {
+    if (! $royalSlider.length) { return; }
+
     $royalSlider.royalSlider({
       imageScaleMode: 'fit',
       imageScalePadding: 0,
