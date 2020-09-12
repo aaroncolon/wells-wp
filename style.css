@@ -404,6 +404,11 @@ h6 {
 	clear: both;
 }
 
+.entry-title {
+	font-weight: 400;
+	text-align: center;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -814,6 +819,10 @@ p.site-title a {
 }
 
 @media screen and (min-width: 50em) {
+	.site {
+		max-width: 1200px;
+		width: 100%;
+	}
 	.site-main {
 		margin-left: 280px;
 		padding: 0px;
@@ -976,6 +985,7 @@ p.site-title a {
 		left: auto;
 		right: 30px;
 		max-width: 240px;
+		width: auto;
 	}
 	.rs-meta--vh-sm .rsGCaption {
 		padding: 15px 15px 0;
