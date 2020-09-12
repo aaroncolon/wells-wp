@@ -156,6 +156,7 @@ function wells_scripts() {
 	wp_enqueue_script( 'royalslider', get_template_directory_uri() . '/js/royalslider/jquery.royalslider.min.js', array('jquery'), '9.5.9', true );
 
 	wp_enqueue_script( 'wells-utilities', get_template_directory_uri() . '/js/Utilities.js', array(), WELLS_VERSION, true );
+	wp_enqueue_script( 'wells-site-height', get_template_directory_uri() . '/js/siteHeight.js', array(), WELLS_VERSION, true );
 	wp_enqueue_script( 'wells-navigation', get_template_directory_uri() . '/js/navigation.js', array(), WELLS_VERSION, true );
 	wp_enqueue_script( 'wells-navigation-folders', get_template_directory_uri() . '/js/navigationFolders.js', array('jquery'), WELLS_VERSION, true );
 	wp_enqueue_script( 'wells-main', get_template_directory_uri() . '/js/main.js', array('jquery'), WELLS_VERSION, true );
