@@ -6,3 +6,9 @@
 		max-width: 100%;
 	}
 }
+
+@media screen and (min-width: $breakpoint__md) {
+	.widget-area {
+		margin-left: 280px;
+	}
+}

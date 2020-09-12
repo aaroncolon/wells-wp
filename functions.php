@@ -46,11 +46,18 @@ if ( ! function_exists( 'wells_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'sm', 300, 300 );
+		add_image_size( 'md', 600, 600 );
+		add_image_size( 'lg', 1000, 1000);
+		add_image_size( 'xl', 1500, 1500 );
+		add_image_size( 'xxl', 2000, 2000 );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'wells' ),
+				'primary-menu' => esc_html__( 'Primary', 'wells' ),
+				'secondary-menu' => esc_html__( 'Secondary', 'wells' ),
+				'mobile-menu' => esc_html__( 'Mobile', 'wells' ),
 			)
 		);
 
@@ -140,16 +147,34 @@ add_action( 'widgets_init', 'wells_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wells_scripts() {
+	wp_enqueue_style( 'royalslider-css', get_template_directory_uri() . '/js/royalslider/royalslider.css', array(), '9.5.9' );
+	wp_enqueue_style( 'royalslider-theme-css', get_template_directory_uri() . '/js/royalslider/skins/universal/rs-universal.css', array(), '9.5.9' );
+
 	wp_enqueue_style( 'wells-style', get_stylesheet_uri(), array(), WELLS_VERSION );
 	wp_style_add_data( 'wells-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'royalslider', get_template_directory_uri() . '/js/royalslider/jquery.royalslider.min.js', array('jquery'), '9.5.9', true );
+
+	wp_enqueue_script( 'wells-utilities', get_template_directory_uri() . '/js/Utilities.js', array(), WELLS_VERSION, true );
 	wp_enqueue_script( 'wells-navigation', get_template_directory_uri() . '/js/navigation.js', array(), WELLS_VERSION, true );
+	wp_enqueue_script( 'wells-navigation-folders', get_template_directory_uri() . '/js/navigationFolders.js', array('jquery'), WELLS_VERSION, true );
+	wp_enqueue_script( 'wells-main', get_template_directory_uri() . '/js/main.js', array('jquery'), WELLS_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wells_scripts' );
+
+/**
+ * Custom Post Types
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * ACF Functions
+ */
+require get_template_directory() . '/inc/acf-functions.php';
 
 /**
  * Implement the Custom Header feature.
@@ -183,4 +208,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+function dump($thing) {
+	echo '<pre>';
+		var_dump($thing);
+	echo '</pre>';
 }

@@ -25,11 +25,22 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wells' ); ?></a>
 
+	<nav id="site-navigation-mobile" class="mobile-navigation">
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'mobile-menu',
+				'menu_id'        => 'mobile-menu',
+			)
+		);
+		?>
+	</nav>
+
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+			if ( is_front_page() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
@@ -45,13 +56,23 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
+		<button id="menu-toggle-mobile" class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'wells' ); ?></button>
+
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wells' ); ?></button>
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
+					'theme_location' => 'primary-menu',
 					'menu_id'        => 'primary-menu',
+					'menu_class'     => 'menu menu--primary'
+				)
+			);
+
+			wp_nav_menu(
+				array(
+					'theme_location' => 'secondary-menu',
+					'menu_id'        => 'secondary-menu',
+					'menu_class'     => 'menu menu--secondary'
 				)
 			);
 			?>

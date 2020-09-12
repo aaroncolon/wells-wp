@@ -1,0 +1,10 @@
+.site-main {
+  padding: 20px;
+}
+
+@media screen and (min-width: $breakpoint__md) {
+  .site-main {
+    margin-left: 280px;
+    padding: 0px;
+  }
+}

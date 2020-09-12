@@ -1,0 +1,9 @@
+.royalSlider-container {
+  display: none;
+}
+
+@media screen and (min-width: $breakpoint__md) {
+  .gallery-mobile {
+    display: none;
+  }
+}
