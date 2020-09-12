@@ -38,7 +38,7 @@
 				?>
 					<a
 						class="rsImg"
-						href="<?php echo esc_url($image['sizes']['lg']) ?>"
+						href="<?php echo esc_url($image['sizes']['xl']) ?>"
 						data-id="<?php esc_attr_e($image['id']) ?>"
 						data-title="<?php esc_attr_e($image['title']) ?>"
 						data-alt="<?php esc_attr_e($image['alt']) ?>"
