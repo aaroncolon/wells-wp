@@ -37,8 +37,10 @@
 		siteNavigation.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
-			button.setAttribute( 'aria-expanded', 'false' );
+      siteNavigation.style.height = '0px';
+      button.setAttribute( 'aria-expanded', 'false' );
 		} else {
+      siteNavigation.style.height = String(siteNavigation.scrollHeight + 'px');
 			button.setAttribute( 'aria-expanded', 'true' );
 		}
 	} );

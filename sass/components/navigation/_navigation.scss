@@ -1,8 +1,8 @@
 .mobile-navigation {
 	background-color: $color__background-screen;
-	max-height: 0px;
+	height: 0px;
 	overflow-y: hidden;
-	transition: max-height 0.2s linear, visibility 0.2s linear;
+	transition: height 0.1s linear, visibility 0.1s linear;
 	visibility: hidden;
 
 	ul {
@@ -19,15 +19,35 @@
 	a {
 		color: $color__text-main;
 		display: block;
-		font-size: 1.125em; // 18px
-		line-height: 2.5em;
+		font-size: 1.285714285714286em; // 18px
+		letter-spacing: 0;
+		line-height: 2.5;
 		text-decoration: none;
+	}
+
+	.mobile-folder {
+		margin-bottom: 20px;
+
+		& > a {
+			position: relative;
+
+			&::after {
+				background: rgb(51,51,51);
+				background: rgba(51,51,51,0.4);
+				bottom: 0;
+				content: '';
+				display: block;
+				height: 1px;
+				left: 25%;
+				position: absolute;
+				width: 50%;
+			}
+		}
 	}
 }
 
 /* Small menu. */
 .mobile-navigation.toggled {
-	max-height: 1000px;
 	visibility: visible;
 }
 
@@ -40,6 +60,8 @@
 	border: 0 none;
 	border-radius: 0;
 	cursor: pointer;
+	font-size: 1.071428571428571em;
+	letter-spacing: 0;
 	padding: 20px;
 	position: absolute;
 	right: 0;
@@ -71,7 +93,7 @@
 			padding-left: 0;
 
 			ul {
-				padding: 0.5em 0;
+				// padding: 0.5em 0;
 
 				ul {
 
@@ -84,6 +106,14 @@
 					&.focus > ul {
 
 					}
+				}
+
+				& > li:first-child {
+					margin-top: 0.5em;
+				}
+
+				& > li:last-child {
+					margin-bottom: 0.5em;
 				}
 
 				a {
@@ -115,7 +145,7 @@
 
 		a {
 			display: block;
-			font-size: 14px;
+			letter-spacing: 0;
 			text-decoration: none;
 		}
 
@@ -126,25 +156,28 @@
 		}
 
 		.menu--secondary {
-
 			a {
-				font-size: 13px;
+				font-size: 0.928571428571429em; // 13px
 			}
 		}
 
 		.folder {
 			.sub-menu {
-				transition: opacity 0.1s linear;
+				// transition: opacity 0.1s linear;
+				height: 0px;
+				overflow-y: hidden;
+				transition: height 0.1s linear, visibility 0.1s linear;
 
 				&--closed {
-					opacity: 0;
-					padding: 0;
+					// opacity: 0;
+					// padding: 0;
 					visibility: hidden;
 				}
 
 				&--open {
-					opacity: 1;
-					padding: 0.5em 0;
+					// opacity: 1;
+					// padding: 0.5em 0;
+					// visibility: visible;
 					visibility: visible;
 				}
 			}
