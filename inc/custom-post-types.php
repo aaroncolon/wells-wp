@@ -26,6 +26,7 @@ function wells_register_cpt() {
     'publicly_queryable'  => true,
     'show_ui'             => true,
     'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
     'menu_position'       => 7,
     'capability_type'     => 'post',
     'map_meta_cap'        => true,
