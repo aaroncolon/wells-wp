@@ -326,14 +326,14 @@ p.stars a::before {
 	line-height: 1;
 	font-family: star;
 	content: "\53";
-	color: #404040;
+	color: #333333;
 	text-indent: 0;
 	opacity: 0.25;
 }
 
 p.stars a:hover ~ a::before {
 	content: "\53";
-	color: #404040;
+	color: #333333;
 	opacity: 0.25;
 }
 
@@ -351,7 +351,7 @@ p.stars.selected a.active::before {
 
 p.stars.selected a.active ~ a::before {
 	content: "\53";
-	color: #404040;
+	color: #333333;
 	opacity: 0.25;
 }
 
