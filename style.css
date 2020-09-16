@@ -391,8 +391,9 @@ optgroup,
 textarea {
 	color: #333333;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 1rem;
-	line-height: 1.5;
+	font-size: 0.875em;
+	letter-spacing: 0.02em;
+	line-height: 1.6;
 }
 
 h1,
@@ -402,6 +403,13 @@ h4,
 h5,
 h6 {
 	clear: both;
+	letter-spacing: 0.01em;
+	line-height: 1.2;
+	margin: 1em 0;
+}
+
+h1 {
+	font-size: 2.142857142857143em;
 }
 
 .entry-title {
@@ -410,7 +418,7 @@ h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin: 0 0 1em;
 }
 
 dfn,
@@ -421,18 +429,18 @@ i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	margin: 0 1em;
 }
 
 address {
-	margin: 0 0 1.5em;
+	margin: 0 0 1em;
 }
 
 pre {
 	background: #eee;
 	font-family: "Courier 10 Pitch", courier, monospace;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
+	margin-bottom: 1em;
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.6em;
@@ -519,6 +527,10 @@ img {
 
 figure {
 	margin: 1em 0;
+}
+
+.wp-block-image figcaption {
+	font-size: 0.857142857142857em;
 }
 
 table {
@@ -655,9 +667,10 @@ textarea {
 .site-title,
 h1.site-title,
 p.site-title {
-	font-size: 3em;
+	font-size: 3.142857142857143em;
 	font-weight: 400;
-	line-height: 1;
+	letter-spacing: 0;
+	line-height: 1.3;
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -687,9 +700,9 @@ p.site-title a {
 --------------------------------------------- */
 .mobile-navigation {
 	background-color: #f1f1f1;
-	max-height: 0px;
+	height: 0px;
 	overflow-y: hidden;
-	transition: max-height 0.2s linear, visibility 0.2s linear;
+	transition: height 0.1s linear, visibility 0.1s linear;
 	visibility: hidden;
 }
 
@@ -707,14 +720,34 @@ p.site-title a {
 .mobile-navigation a {
 	color: #333333;
 	display: block;
-	font-size: 1.125em;
-	line-height: 2.5em;
+	font-size: 1.285714285714286em;
+	letter-spacing: 0;
+	line-height: 2.5;
 	text-decoration: none;
+}
+
+.mobile-navigation .mobile-folder {
+	margin-bottom: 20px;
+}
+
+.mobile-navigation .mobile-folder > a {
+	position: relative;
+}
+
+.mobile-navigation .mobile-folder > a::after {
+	background: #333333;
+	background: rgba(51, 51, 51, 0.4);
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 1px;
+	left: 25%;
+	position: absolute;
+	width: 50%;
 }
 
 /* Small menu. */
 .mobile-navigation.toggled {
-	max-height: 1000px;
 	visibility: visible;
 }
 
@@ -727,6 +760,8 @@ p.site-title a {
 	border: 0 none;
 	border-radius: 0;
 	cursor: pointer;
+	font-size: 1.071428571428571em;
+	letter-spacing: 0;
 	padding: 20px;
 	position: absolute;
 	right: 0;
@@ -755,34 +790,35 @@ p.site-title a {
 		margin: 0;
 		padding-left: 0;
 	}
-	.main-navigation ul ul {
-		padding: 0.5em 0;
-	}
 	.main-navigation ul ul li {
 		margin-left: 0.5em;
+	}
+	.main-navigation ul ul > li:first-child {
+		margin-top: 0.5em;
+	}
+	.main-navigation ul ul > li:last-child {
+		margin-bottom: 0.5em;
 	}
 	.main-navigation li {
 		position: relative;
 	}
 	.main-navigation a {
 		display: block;
-		font-size: 14px;
+		letter-spacing: 0;
 		text-decoration: none;
 	}
 	.main-navigation .menu--secondary a {
-		font-size: 13px;
+		font-size: 0.928571428571429em;
 	}
 	.main-navigation .folder .sub-menu {
-		transition: opacity 0.1s linear;
+		height: 0px;
+		overflow-y: hidden;
+		transition: height 0.1s linear, visibility 0.1s linear;
 	}
 	.main-navigation .folder .sub-menu--closed {
-		opacity: 0;
-		padding: 0;
 		visibility: hidden;
 	}
 	.main-navigation .folder .sub-menu--open {
-		opacity: 1;
-		padding: 0.5em 0;
 		visibility: visible;
 	}
 }
@@ -863,6 +899,12 @@ p.site-title a {
 
 /* Galleries Custom
 --------------------------------------------- */
+.gallery-mobile__slide-description {
+	margin-top: 0;
+	font-size: 0.875em;
+	font-style: italic;
+}
+
 .royalSlider-container {
 	display: none;
 }
@@ -968,7 +1010,7 @@ p.site-title a {
 		font-size: 12px;
 		padding: 15px;
 	}
-	.rs-meta .rs-control {
+	.rs-meta .rs-controls__button {
 		background: none;
 		border: none;
 		border-radius: 0;
