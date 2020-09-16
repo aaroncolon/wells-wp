@@ -143,6 +143,9 @@ function wells_widgets_init() {
 }
 add_action( 'widgets_init', 'wells_widgets_init' );
 
+// Custom CSS.
+require get_template_directory() . '/inc/custom-css.php';
+
 /**
  * Enqueue scripts and styles.
  */
@@ -152,6 +155,9 @@ function wells_scripts() {
 
 	wp_enqueue_style( 'wells-style', get_stylesheet_uri(), array(), WELLS_VERSION );
 	wp_style_add_data( 'wells-style', 'rtl', 'replace' );
+
+	// Add output of Customizer settings as inline style.
+	wp_add_inline_style( 'wells-style', wells_get_customizer_css() );
 
 	wp_enqueue_script( 'royalslider', get_template_directory_uri() . '/js/royalslider/jquery.royalslider.min.js', array('jquery'), '9.5.9', true );
 

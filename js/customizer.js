@@ -39,4 +39,14 @@
 			}
 		} );
 	} );
+
+  // Link color.
+  wp.customize( 'link_color', function( value ) {
+		value.bind( function( to ) {
+      $( '.site-main a' ).css( {
+        color: to
+      } );
+		} );
+	} );
+
 }( jQuery ) );
