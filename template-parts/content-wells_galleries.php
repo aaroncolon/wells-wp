@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page_gallery.php
+ * Template part for displaying page content in single-wells_galleries.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -16,8 +16,7 @@
 
 	<div class="entry-content">
 		<?php
-		$gallery_id = get_field('wells_gallery');
-		$images = get_field('wells_images', $gallery_id);
+		$images = get_field('wells_images');
 		?>
 		<script>
 		 	const wells_images = <?php echo json_encode($images) ?>;
