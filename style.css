@@ -726,6 +726,13 @@ p.site-title a {
 	text-decoration: none;
 }
 
+.mobile-navigation .current_page_item > a,
+.mobile-navigation .current-menu-item > a,
+.mobile-navigation .current_page_ancestor > a,
+.mobile-navigation .current-menu-ancestor > a {
+	color: #191970;
+}
+
 .mobile-navigation .mobile-folder {
 	margin-bottom: 20px;
 }
@@ -806,6 +813,12 @@ p.site-title a {
 		display: block;
 		letter-spacing: 0;
 		text-decoration: none;
+	}
+	.main-navigation .current_page_item > a,
+	.main-navigation .current-menu-item > a,
+	.main-navigation .current_page_ancestor > a,
+	.main-navigation .current-menu-ancestor > a {
+		color: #191970;
 	}
 	.main-navigation .menu--secondary a {
 		font-size: 0.928571428571429em;

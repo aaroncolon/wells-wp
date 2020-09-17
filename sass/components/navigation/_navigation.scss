@@ -25,6 +25,13 @@
 		text-decoration: none;
 	}
 
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+		color: $color__link-hover;
+	}
+
 	.mobile-folder {
 		margin-bottom: 20px;
 
@@ -153,6 +160,7 @@
 		.current-menu-item > a,
 		.current_page_ancestor > a,
 		.current-menu-ancestor > a {
+			color: $color__link-hover;
 		}
 
 		.menu--secondary {

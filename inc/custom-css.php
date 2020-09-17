@@ -59,8 +59,10 @@ function wells_get_customizer_css( $type = 'front-end' ) {
     a:hover, a:active, a:focus { color: '. $link_hover_color .'}
     .main-navigation a, .main-navigation a:visited { color: '. $nav_link_color .'}
     .main-navigation a:hover, .main-navigation a:active, .main-navigation:focus { color: '. $nav_link_hover_color .'}
+    .main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a { color: '. $nav_link_hover_color .' }
     .mobile-navigation a, .mobile-navigation a:visited { color: '. $mobile_nav_link_color .'}
     .mobile-navigation a:hover, .mobile-navigation a:active, .mobile-navigation:focus { color: '. $mobile_nav_link_hover_color .'}
+    .mobile-navigation .current_page_item > a, .mobile-navigation .current-menu-item > a, .mobile-navigation .current_page_ancestor > a, .mobile-navigation .current-menu-ancestor > a { color: '. $mobile_nav_link_hover_color .' }
     .mobile-navigation { background-color: '. $mobile_nav_bg_color .'}
     h1 { color: '. $h1_text_color .'}
     h2 { color: '. $h2_text_color .'}
