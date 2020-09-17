@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aaroncol/wells.aaroncolon.net/wp-content/themes/wells/
+    - rsync -av --exclude=".git" --exclude="/node_modules" --exclude="/vendor" --exclude=".DS_Store" . $DEPLOYPATH
