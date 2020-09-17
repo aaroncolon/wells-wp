@@ -47,6 +47,9 @@
 			<div class="royalSlider rsUni">
 				<?php
 				foreach ($images as $image) :
+					$desc = ($image['description'])
+									? $image['description']
+									: (($image['caption']) ? $image['caption'] : $image['title']);
 				?>
 					<a
 						class="rsImg"
@@ -56,7 +59,7 @@
 						data-alt="<?php esc_attr_e($image['alt']) ?>"
 						data-description="<?php esc_attr_e($image['description']) ?>"
 						data-caption="<?php esc_attr_e($image['caption']) ?>">
-							<?php esc_attr_e($image['name']) ?>
+							<?php esc_attr_e($desc) ?>
 					</a>
 				<?php
 				endforeach;
