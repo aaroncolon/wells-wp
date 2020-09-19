@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/aaroncol/wells.aaroncolon.net/wp-content/themes/wells/
-    - rsync -av --exclude=".git" --exclude="/node_modules" --exclude="/vendor" --exclude=".DS_Store" . $DEPLOYPATH
+    - rsync -av --exclude={".git", ".github", "/node_modules", "/vendor", ".cpanel.yml", ".DS_Store", "*.lock"} . $DEPLOYPATH
