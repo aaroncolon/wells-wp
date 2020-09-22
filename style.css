@@ -909,6 +909,12 @@ p.site-title a {
 	margin: 0 0 1.5em;
 }
 
+.wp-block-group__inner-container::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
 /* Galleries Custom
 --------------------------------------------- */
 .gallery-mobile__slide-description {
@@ -1249,6 +1255,12 @@ p.site-title a {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+.clearfix::after {
+	clear: both;
+	content: "";
+	display: block;
 }
 
 /*# sourceMappingURL=style.css.map */
