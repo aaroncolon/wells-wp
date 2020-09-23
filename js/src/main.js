@@ -126,10 +126,6 @@ const main = (function() {
   }
 
   function bindEventsRs(slider) {
-    slider.ev.on('rsAfterSlideChange', function(event) {
-      console.log('rsAfterSlideChange', event);
-    });
-
     $rsControlPrev.on('click', handleRsPrev);
     $rsControlNext.on('click', handleRsNext);
   }
