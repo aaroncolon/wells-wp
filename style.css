@@ -917,6 +917,23 @@ p.site-title a {
 
 /* Galleries Custom
 --------------------------------------------- */
+.wp-block-gallery--stacked .blocks-gallery-item figure {
+	flex-direction: column;
+}
+
+.wp-block-gallery--stacked .blocks-gallery-item figcaption {
+	background: transparent;
+	bottom: auto;
+	color: #333333;
+	margin-top: 0.5em;
+	max-height: none;
+	overflow: hidden;
+	padding: 0;
+	position: static;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .gallery-mobile__slide-description {
 	margin-top: 0;
 	font-size: 0.875em;
