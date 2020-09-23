@@ -11,7 +11,10 @@ const wells = (function() {
   let $window,
       windowHeight,
       windowWidth,
+      siteHeader,
+      siteHeaderHeight,
       siteNavigation,
+      navHeightSet = false,
       $rsContainer,
       $royalSlider,
       $rsMeta,
@@ -23,12 +26,16 @@ const wells = (function() {
   function init() {
     cacheDom();
     setWindowDimensions();
+    initObserverNavigation();
+    handleNavigationDimensions();
     bindEvents();
     render();
   }
 
   function cacheDom() {
     $window          = jQuery(window);
+    siteHeader       = document.getElementById('masthead');
+    siteHeaderHeight = siteHeader.clientHeight + siteHeader.offsetTop;
     siteNavigation   = document.getElementById('site-navigation');
     $rsContainer     = jQuery('.royalSlider-container');
     $royalSlider     = $rsContainer.find('.royalSlider');
@@ -53,6 +60,7 @@ const wells = (function() {
   function _handleWindowResize(e) {
     setWindowDimensions();
 
+    // RoyalSlider
     if (windowWidth > BREAKPOINT_MD && ! $royalSlider.length) {
       initRoyalSlider();
       showRoyalSlider();
@@ -61,6 +69,9 @@ const wells = (function() {
     } else {
       hideRoyalSlider();
     }
+
+    // Navigation
+    handleNavigationDimensions();
   }
 
   function setWindowDimensions() {
@@ -70,6 +81,17 @@ const wells = (function() {
       height: windowHeight,
       width: windowWidth
     };
+  }
+
+  function handleNavigationDimensions() {
+    if (! navHeightSet && windowHeight <= siteHeaderHeight) {
+      siteNavigation.style.height = String(siteNavigation.clientHeight / 2) + 'px';
+      siteNavigation.style.overflowY = 'auto';
+      navHeightSet = true;
+    } else if (navHeightSet && windowHeight >= siteHeaderHeight) {
+      siteNavigation.style.height = 'auto';
+      navHeightSet = false;
+    }
   }
 
   function initRoyalSlider() {
@@ -100,7 +122,6 @@ const wells = (function() {
     $rsMeta.prepend($royalSlider.find('.rsGCaption'));
 
     bindEventsRs(slider);
-    initObserverRs();
   }
 
   function bindEventsRs(slider) {
@@ -122,7 +143,7 @@ const wells = (function() {
     slider.next();
   }
 
-  function initObserverRs() {
+  function initObserverNavigation() {
     let options = {
       root: null,
       rootMargin: '0px 0px -200px 0px',
@@ -133,14 +154,20 @@ const wells = (function() {
 
     function handleIntersect(entries, observer) {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          $rsMeta.removeClass('rs-meta' + CLASS_VH_SM);
-        } else {
-          $rsMeta.addClass('rs-meta' + CLASS_VH_SM);
-        }
+        handleIntersectRs(entry);
       });
     }
     observer.observe(siteNavigation);
+  }
+
+  function handleIntersectRs(entry) {
+    if (! $royalSlider.length) { return; }
+
+    if (entry.isIntersecting) {
+      $rsMeta.removeClass('rs-meta' + CLASS_VH_SM);
+    } else {
+      $rsMeta.addClass('rs-meta' + CLASS_VH_SM);
+    }
   }
 
   function showRoyalSlider() {
