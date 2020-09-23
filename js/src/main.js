@@ -1,6 +1,7 @@
-'use strict';
+import './royalslider/jquery.royalslider.min.js';
+import Utilities from './Utilities.js';
 
-const wells = (function() {
+const main = (function() {
   const BREAKPOINT_XS = 300,
         BREAKPOINT_SM = 600,
         BREAKPOINT_MD = 800,
@@ -179,8 +180,8 @@ const wells = (function() {
   }
 
   return {
-    init: init
+    init
   };
 })();
 
-wells.init();
+export default main;

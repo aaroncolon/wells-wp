@@ -150,8 +150,8 @@ require get_template_directory() . '/inc/custom-css.php';
  * Enqueue scripts and styles.
  */
 function wells_scripts() {
-	wp_enqueue_style( 'royalslider-css', get_template_directory_uri() . '/js/royalslider/royalslider.css', array(), '9.5.9' );
-	wp_enqueue_style( 'royalslider-theme-css', get_template_directory_uri() . '/js/royalslider/skins/universal/rs-universal.css', array(), '9.5.9' );
+	wp_enqueue_style( 'royalslider-css', get_template_directory_uri() . '/js/dist/royalslider/royalslider.css', array(), '9.5.9' );
+	wp_enqueue_style( 'royalslider-theme-css', get_template_directory_uri() . '/js/dist/royalslider/skins/universal/rs-universal.css', array(), '9.5.9' );
 
 	wp_enqueue_style( 'wells-style', get_stylesheet_uri(), array(), WELLS_VERSION );
 	wp_style_add_data( 'wells-style', 'rtl', 'replace' );
@@ -159,13 +159,13 @@ function wells_scripts() {
 	// Add output of Customizer settings as inline style.
 	wp_add_inline_style( 'wells-style', wells_get_customizer_css() );
 
-	wp_enqueue_script( 'royalslider', get_template_directory_uri() . '/js/royalslider/jquery.royalslider.min.js', array('jquery'), '9.5.9', true );
+	// wp_enqueue_script( 'wells-utilities', get_template_directory_uri() . '/js/Utilities.js', array(), WELLS_VERSION, true );
+	// wp_enqueue_script( 'wells-site-height', get_template_directory_uri() . '/js/siteHeight.js', array(), WELLS_VERSION, true );
+	// wp_enqueue_script( 'wells-navigation', get_template_directory_uri() . '/js/navigation.js', array(), WELLS_VERSION, true );
+	// wp_enqueue_script( 'wells-navigation-folders', get_template_directory_uri() . '/js/navigationFolders.js', array('jquery'), WELLS_VERSION, true );
+	// wp_enqueue_script( 'wells-main', get_template_directory_uri() . '/js/main.js', array('jquery'), WELLS_VERSION, true );
 
-	wp_enqueue_script( 'wells-utilities', get_template_directory_uri() . '/js/Utilities.js', array(), WELLS_VERSION, true );
-	wp_enqueue_script( 'wells-site-height', get_template_directory_uri() . '/js/siteHeight.js', array(), WELLS_VERSION, true );
-	wp_enqueue_script( 'wells-navigation', get_template_directory_uri() . '/js/navigation.js', array(), WELLS_VERSION, true );
-	wp_enqueue_script( 'wells-navigation-folders', get_template_directory_uri() . '/js/navigationFolders.js', array('jquery'), WELLS_VERSION, true );
-	wp_enqueue_script( 'wells-main', get_template_directory_uri() . '/js/main.js', array('jquery'), WELLS_VERSION, true );
+	wp_enqueue_script( 'wells-all', get_template_directory_uri() . '/js/dist/bundle.js', array('jquery'), WELLS_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
