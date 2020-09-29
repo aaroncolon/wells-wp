@@ -100,11 +100,19 @@ const main = (function() {
   }
 
   function initImages() {
-    $images.css('opacity', 0);
+    if (!$images.length) { return; }
+
+    $images.each(function() {
+      if (!this.complete) {
+        this.style.opacity = 0;
+      }
+    });
   }
 
   function handleImagesLoad(e) {
-    this.style.opacity = 1;
+    if (this.style.opacity === '0' && this.complete) {
+      this.style.opacity = 1;
+    }
   }
 
   function initRoyalSlider() {
