@@ -50,7 +50,8 @@ const main = (function() {
 
   function bindEvents() {
     $window.on('resize.wells', handleWindowResize);
-    $images.on('load.wells', handleImagesLoad);
+    $images.one('load.wells', handleImagesLoad);
+    $images.each(handleImagesLoadCache);
   }
 
   function render() {
@@ -101,6 +102,13 @@ const main = (function() {
   function handleImagesLoad(e) {
     if (this.complete) {
       this.style.opacity = '1';
+    }
+  }
+
+  function handleImagesLoadCache(index, el) {
+    if (window.getComputedStyle(this).opacity === '0' && this.complete) {
+      const $this = jQuery(this);
+      $this.triggerHandler('load.wells');
     }
   }
 
