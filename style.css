@@ -524,12 +524,31 @@ img {
 	max-width: 100%;
 }
 
+img[loading="lazy"] {
+	transition: opacity 0.2s linear;
+}
+
 figure {
 	margin: 1em 0;
 }
 
 .wp-block-image figcaption {
 	font-size: 0.857142857142857em;
+}
+
+.wp-block-image.caption-left figcaption,
+.wp-block-image.caption--left figcaption {
+	text-align: left;
+}
+
+.wp-block-image.caption-center figcaption,
+.wp-block-image.caption--center figcaption {
+	text-align: center;
+}
+
+.wp-block-image.caption-right figcaption,
+.wp-block-image.caption--right figcaption {
+	text-align: right;
 }
 
 table {

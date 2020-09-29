@@ -22,13 +22,15 @@ const main = (function() {
       $rsControls,
       $rsControlPrev,
       $rsControlNext,
-      slider;
+      slider,
+      $images;
 
   function init() {
     cacheDom();
     setWindowDimensions();
     initObserverNavigation();
     handleNavigationDimensions();
+    initImages();
     bindEvents();
     render();
   }
@@ -44,10 +46,12 @@ const main = (function() {
     $rsControls      = $rsContainer.find('.rs-controls');
     $rsControlPrev   = $rsContainer.find('.rs-controls__prev');
     $rsControlNext   = $rsContainer.find('.rs-controls__next');
+    $images          = jQuery('img[loading="lazy"]').filter(':visible');
   }
 
   function bindEvents() {
     $window.on('resize.wells', handleWindowResize);
+    $images.on('load.wells', handleImagesLoad);
   }
 
   function render() {
@@ -93,6 +97,14 @@ const main = (function() {
       siteNavigation.style.height = 'auto';
       navHeightSet = false;
     }
+  }
+
+  function initImages() {
+    $images.css('opacity', 0);
+  }
+
+  function handleImagesLoad(e) {
+    this.style.opacity = 1;
   }
 
   function initRoyalSlider() {

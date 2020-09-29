@@ -8,12 +8,33 @@ object {
 img {
 	height: auto; // Make sure images are scaled correctly.
 	max-width: 100%; // Adhere to container width.
+
+	&[loading="lazy"] {
+		transition: opacity 0.2s linear;
+	}
 }
 
 figure {
 	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
 }
 
-.wp-block-image figcaption {
-	font-size: 0.857142857142857em; // 12px
+.wp-block-image {
+	figcaption {
+		font-size: 0.857142857142857em; // 12px
+	}
+
+	&.caption-left figcaption,
+	&.caption--left figcaption {
+		text-align: left;
+	}
+
+	&.caption-center figcaption,
+	&.caption--center figcaption {
+		text-align: center;
+	}
+
+	&.caption-right figcaption,
+	&.caption--right figcaption {
+		text-align: right;
+	}
 }
