@@ -10,7 +10,14 @@ img {
 	max-width: 100%; // Adhere to container width.
 
 	&[loading="lazy"] {
-		transition: opacity 0.2s linear;
+		opacity: 0;
+		transition: opacity 0.5s linear;
+	}
+}
+
+.no-js img {
+	&[loading="lazy"] {
+		opacity: 1;
 	}
 }
 

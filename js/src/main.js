@@ -30,7 +30,6 @@ const main = (function() {
     setWindowDimensions();
     initObserverNavigation();
     handleNavigationDimensions();
-    initImages();
     bindEvents();
     render();
   }
@@ -99,19 +98,9 @@ const main = (function() {
     }
   }
 
-  function initImages() {
-    if (!$images.length) { return; }
-
-    $images.each(function() {
-      if (!this.complete) {
-        this.style.opacity = 0;
-      }
-    });
-  }
-
   function handleImagesLoad(e) {
-    if (this.style.opacity === '0' && this.complete) {
-      this.style.opacity = 1;
+    if (this.complete) {
+      this.style.opacity = '1';
     }
   }
 
