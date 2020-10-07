@@ -89,7 +89,7 @@ function wells_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
-	$wp_customize->add_setting( 'nav_link_curent_color', array(
+	$wp_customize->add_setting( 'nav_link_current_color', array(
 		'type' => 'theme_mod',
 		'capability' => 'edit_theme_options',
 		'default' => '#191970',
@@ -290,7 +290,7 @@ function wells_customize_register( $wp_customize ) {
 			$wp_customize,
 			'mobile_nav_bg_color', // control id
 			array(
-				'label' => __( 'Mobile Nav Backgroung Color', 'wells' ),
+				'label' => __( 'Mobile Nav Background Color', 'wells' ),
 				'section' => 'colors',
 				'settings' => 'mobile_nav_bg_color' // setting id
 			)
