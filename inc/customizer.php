@@ -89,6 +89,13 @@ function wells_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
+	$wp_customize->add_setting( 'nav_link_curent_color', array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '#191970',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+
 	$wp_customize->add_setting( 'mobile_nav_link_color', array(
 		'type' => 'theme_mod',
 		'capability' => 'edit_theme_options',
@@ -97,6 +104,13 @@ function wells_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'mobile_nav_link_hover_color', array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '#191970',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+
+	$wp_customize->add_setting( 'mobile_nav_link_current_color', array(
 		'type' => 'theme_mod',
 		'capability' => 'edit_theme_options',
 		'default' => '#191970',
@@ -226,6 +240,18 @@ function wells_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
+			'nav_link_current_color', // control id
+			array(
+				'label' => __( 'Nav Link Current Color', 'wells' ),
+				'section' => 'colors',
+				'settings' => 'nav_link_current_color' // setting id
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
 			'mobile_nav_link_color', // control id
 			array(
 				'label' => __( 'Mobile Nav Link Color', 'wells' ),
@@ -243,6 +269,18 @@ function wells_customize_register( $wp_customize ) {
 				'label' => __( 'Mobile Nav Link Hover Color', 'wells' ),
 				'section' => 'colors',
 				'settings' => 'mobile_nav_link_hover_color' // setting id
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'mobile_nav_link_current_color', // control id
+			array(
+				'label' => __( 'Mobile Nav Link Current Color', 'wells' ),
+				'section' => 'colors',
+				'settings' => 'mobile_nav_link_current_color' // setting id
 			)
 		)
 	);
