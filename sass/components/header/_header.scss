@@ -19,7 +19,8 @@ p.site-title {
 }
 
 // separate rule for WP Customizer
-.site-title a {
+.site-title a,
+.site-title a:visited {
   color: $color__text-main;
   text-decoration: none;
 }
